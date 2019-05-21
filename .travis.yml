@@ -10,7 +10,7 @@ services:
     - docker
 jobs:
   include:
-    - stage: build
-      script: ./travis_build.sh
-    - stage: performance_tests
-      script: ./travis_performance_testing.sh
+    - stage: build_test
+      script: 
+        - ./travis_build.sh
+        - ./travis_performance_testing.sh
