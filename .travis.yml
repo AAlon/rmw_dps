@@ -8,5 +8,9 @@ notifications:
       - ros-dps-interest@amazon.com
 services:
     - docker
-script:
-    - ./travis_build.sh
+jobs:
+  include:
+    - stage: build
+      script: ./travis_build.sh
+    - stage: performance_tests
+      script: ./travis_performance_testing.sh
