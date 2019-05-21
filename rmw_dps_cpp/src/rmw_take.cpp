@@ -203,7 +203,7 @@ rmw_take_serialized_message_with_info(
     "rmw_dps_cpp",
     "%s(subscription=%p,serialized_message=%p,taken=%p,message_info=%p,allocation=%p)",
     __FUNCTION__,
-    reinterpret_cast<void*>(subscription), reinterpret_cast<void*>(serialized_message),
+    reinterpret_cast<const void*>(subscription), reinterpret_cast<void*>(serialized_message),
     (void*)taken, (void*)message_info,
     reinterpret_cast<void*>(allocation));
 

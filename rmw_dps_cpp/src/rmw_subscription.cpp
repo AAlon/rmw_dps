@@ -64,7 +64,7 @@ rmw_create_subscription(
     "qos_policies={history=%d,depth=%zu,reliability=%d,durability=%d},"
     "ignore_local_publications=%d)",
     __FUNCTION__,
-    reinterpret_cast<void*>(node), reinterpret_cast<void*>(type_supports),
+    reinterpret_cast<const void*>(node), reinterpret_cast<const void*>(type_supports),
     topic_name, qos_policies->history,
     qos_policies->depth, qos_policies->reliability, qos_policies->durability,
     ignore_local_publications);
