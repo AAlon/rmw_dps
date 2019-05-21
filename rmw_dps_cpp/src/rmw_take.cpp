@@ -204,7 +204,7 @@ rmw_take_serialized_message_with_info(
     "%s(subscription=%p,serialized_message=%p,taken=%p,message_info=%p,allocation=%p)",
     __FUNCTION__,
     reinterpret_cast<const void*>(subscription), reinterpret_cast<void*>(serialized_message),
-    (void*)taken, (void*)message_info,
+    reinterpret_cast<void*>(taken), reinterpret_cast<void*>(message_info),
     reinterpret_cast<void*>(allocation));
 
   RCUTILS_CHECK_FOR_NULL_WITH_MSG(

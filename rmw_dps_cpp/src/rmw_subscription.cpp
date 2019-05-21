@@ -187,7 +187,8 @@ rmw_subscription_count_matched_publishers(
   // TODO(malsbat): implement
   RCUTILS_LOG_DEBUG_NAMED(
     "rmw_dps_cpp",
-    "%s(subscription=%p,publisher_count=%p)", __FUNCTION__, (void*)subscription, (void*)publisher_count);
+    "%s(subscription=%p,publisher_count=%p)", __FUNCTION__,
+    (void*)subscription, (void*)publisher_count);
 
   return RMW_RET_OK;
 }
