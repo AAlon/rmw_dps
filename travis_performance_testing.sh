@@ -79,7 +79,11 @@ export RMW_IMPLEMENTATION=rmw_dps_cpp
 colcon build --symlink-install --packages-ignore image_tools dummy_robot_bringup qt_gui_cpp rqt_gui_cpp --cmake-args ' -DCMAKE_BUILD_TYPE=MinSizeRel'
 
 # Source and run
-source install/local_setup.bash
+set +v
+. install/local_setup.bash
+set +v
+
+echo "Running benchmark"
 ./install/lib/benchmark/benchmark topology/sierra_nevada.json -t 60 --ipc on
 
 #docker exec osrf_ros2_nightly /bin/bash -c "apt-get update && source /opt/ros/dashing/setup.bash && rosdep update && rosdep install --from-paths /shared/ros2-performance --ignore-src -r -y"
