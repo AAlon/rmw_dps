@@ -4,8 +4,8 @@ set -v
 
 WS_DIR=${TRAVIS_BUILD_DIR}/../ros2_ws
 
-sudo echo 'APT::Get::AllowUnauthenticated "true";' > /etc/apt/apt.conf.d/99myown
-sudo echo 'APT { Get { AllowUnauthenticated "1"; }; };' > /etc/apt/apt.conf.d/98myown
+sudo sh -c 'echo "APT::Get::AllowUnauthenticated \"true\";" > /etc/apt/apt.conf.d/99myown'
+sudo sh -c 'echo "APT { Get { AllowUnauthenticated \"1\"; }; };" > /etc/apt/apt.conf.d/98myown'
 # Locale
 sudo apt-get update && sudo apt-get --reinstall install -qq language-pack-en
 sudo locale-gen en_US en_US.UTF-8
