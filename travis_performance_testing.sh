@@ -56,8 +56,10 @@ sudo pip3 install argcomplete
 # Setup workspace: ROS2, rmw_dps, ros2-performance
 mkdir -p ${WS_DIR}/src
 cd ${WS_DIR}
-wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
+#wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
+cp ${TRAVIS_BUILD_DIR}/ros2.repos ros2.repos
 vcs import src < ros2.repos
+
 ## rmw_dps
 mv ${TRAVIS_BUILD_DIR} ${WS_DIR}/src/ros2/
 ## ros2-performance
