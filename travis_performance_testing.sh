@@ -49,6 +49,8 @@ sudo apt install --allow-unauthenticated --no-install-recommends -y \
   libasio-dev \
   libtinyxml2-dev
 
+sudo pip3 install argcomplete
+
 # Setup workspace: ROS2, rmw_dps, ros2-performance
 mkdir -p ${WS_DIR}/src
 cd ${WS_DIR}
@@ -62,11 +64,15 @@ git clone https://github.com/irobot-ros/ros2-performance ${WS_DIR}/src/
 # rosdep
 sudo rosdep init
 rosdep update
-rosdep install --from-paths src --ignore-src --rosdistro dashing -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers"
+#rosdep install --from-paths src --ignore-src --rosdistro dashing -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers"
+rosdep install --from-paths src --ignore-src --rosdistro dashing -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 python3-lark-parser rti-connext-dds-5.3.1 urdfdom_headers"
+sudo python3 -m pip install -U lark-parser
+
 
 # Build
 export RMW_IMPLEMENTATION=rmw_dps_cpp
-colcon build --symlink-install --cmake-args ' -DCMAKE_BUILD_TYPE=MinSizeRel'
+# colcon build --symlink-install --cmake-args ' -DCMAKE_BUILD_TYPE=MinSizeRel'
+colcon build --symlink-install --packages-ignore qt_gui_cpp rqt_gui_cpp --cmake-args ' -DCMAKE_BUILD_TYPE=MinSizeRel'
 
 # Source and run
 source install/local_setup.bash
