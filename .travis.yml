@@ -1,16 +1,23 @@
 sudo: required
+
 language: generic
+
 notifications:
   email:
     on_success: change
     on_failure: always
     recipients:
       - ros-dps-interest@amazon.com
+
 services:
     - docker
+
 env:
   - SCRIPT_NAME=travis_build.sh
   - SCRIPT_NAME=travis_performance_testing.sh
+
+before_script:
+  - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 6B05F25D762E3157
 script:
   - echo "Running ${SCRIPT_NAME}"
   - ./${SCRIPT_NAME}
