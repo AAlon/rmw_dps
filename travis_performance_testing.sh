@@ -11,12 +11,12 @@ sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # Apt setup
-apt update && sudo apt install curl gnupg2 lsb-release
+sudo apt update && sudo apt install curl gnupg2 lsb-release
 curl http://repo.ros2.org/repos.key | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64,arm64] http://packages.ros.org/ros2/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
 
 # Dependencies
-apt update && apt install -y \
+sudo apt update && sudo apt install -y \
   build-essential \
   cmake \
   git \
@@ -27,7 +27,7 @@ apt update && apt install -y \
   python3-vcstool \
   wget
 # install some pip packages needed for testing
-python3 -m pip install -U \
+sudo python3 -m pip install -U \
   argcomplete \
   flake8 \
   flake8-blind-except \
@@ -45,7 +45,7 @@ python3 -m pip install -U \
   pytest-runner \
   setuptools
 # install Fast-RTPS dependencies
-apt install --no-install-recommends -y \
+sudo apt install --no-install-recommends -y \
   libasio-dev \
   libtinyxml2-dev
 
@@ -60,7 +60,7 @@ mv ${TRAVIS_BUILD_DIR} ${WS_DIR}/src/ros2/
 git clone https://github.com/irobot-ros/ros2-performance ${WS_DIR}/src/
 
 # rosdep
-rosdep init
+sudo rosdep init
 rosdep update
 rosdep install --from-paths src --ignore-src --rosdistro dashing -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers"
 
