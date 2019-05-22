@@ -61,7 +61,7 @@ vcs import src < ros2.repos
 ## rmw_dps
 mv ${TRAVIS_BUILD_DIR} ${WS_DIR}/src/ros2/
 ## ros2-performance
-git clone https://github.com/irobot-ros/ros2-performance ${WS_DIR}/src/
+git clone https://github.com/irobot-ros/ros2-performance ${WS_DIR}/src/ros2-performance
 
 # rosdep
 sudo rosdep init
