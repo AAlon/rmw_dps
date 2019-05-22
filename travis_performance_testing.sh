@@ -16,7 +16,7 @@ curl http://repo.ros2.org/repos.key | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64,arm64] http://packages.ros.org/ros2/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
 
 # Dependencies
-sudo apt update && sudo apt install -y \
+sudo apt update && sudo apt --allow-unauthenticated install -y \
   build-essential \
   cmake \
   git \
@@ -45,7 +45,7 @@ sudo python3 -m pip install -U \
   pytest-runner \
   setuptools
 # install Fast-RTPS dependencies
-sudo apt install --no-install-recommends -y \
+sudo apt install --allow-unauthenticated --no-install-recommends -y \
   libasio-dev \
   libtinyxml2-dev
 
