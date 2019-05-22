@@ -8,11 +8,9 @@ notifications:
       - ros-dps-interest@amazon.com
 services:
     - docker
-jobs:
-  include:
-    - stage: build
-      script:
-        - ./travis_build.sh
-    - stage: performance testing
-      script:
-        - ./travis_performance_testing.sh
+env:
+  - SCRIPT_NAME=travis_build.sh
+  - SCRIPT_NAME=travis_performance_testing.sh
+script:
+  - echo "Running ${SCRIPT_NAME}"
+  - ./${SCRIPT_NAME}
