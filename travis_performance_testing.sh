@@ -4,6 +4,8 @@ set -v
 
 WS_DIR=${TRAVIS_BUILD_DIR}/../ros2_ws
 
+sudo echo 'APT::Get::AllowUnauthenticated "true";' > /etc/apt/apt.conf.d/99myown
+sudo echo 'APT { Get { AllowUnauthenticated "1"; }; };' > /etc/apt/apt.conf.d/98myown
 # Locale
 sudo apt-get update && sudo apt-get --reinstall install -qq language-pack-en
 sudo locale-gen en_US en_US.UTF-8
@@ -12,8 +14,8 @@ export LANG=en_US.UTF-8
 
 # Apt setup
 sudo apt update && sudo apt install curl gnupg2 lsb-release
-#curl http://repo.ros2.org/repos.key | sudo apt-key add -
-#sudo sh -c 'echo "deb [arch=amd64,arm64] http://packages.ros.org/ros2/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
+curl http://repo.ros2.org/repos.key | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64,arm64] http://packages.ros.org/ros2/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
 
 # Dependencies
 sudo apt update --allow-unauthenticated && sudo apt --allow-unauthenticated install -y \
