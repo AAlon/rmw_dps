@@ -11,7 +11,8 @@ services:
 jobs:
   include:
     - stage: build
-      script: 
+      script:
         - ./travis_build.sh
     - stage: performance testing
+      script:
         - ./travis_performance_testing.sh
