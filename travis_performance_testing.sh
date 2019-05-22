@@ -76,7 +76,7 @@ sudo python3 -m pip install -U lark-parser
 # Build
 export RMW_IMPLEMENTATION=rmw_dps_cpp
 # colcon build --symlink-install --cmake-args ' -DCMAKE_BUILD_TYPE=MinSizeRel'
-colcon build --symlink-install --packages-ignore dummy_robot_bringup qt_gui_cpp rqt_gui_cpp --cmake-args ' -DCMAKE_BUILD_TYPE=MinSizeRel'
+colcon build --symlink-install --packages-ignore image_tools dummy_robot_bringup qt_gui_cpp rqt_gui_cpp --cmake-args ' -DCMAKE_BUILD_TYPE=MinSizeRel'
 
 # Source and run
 source install/local_setup.bash
