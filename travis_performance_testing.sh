@@ -84,7 +84,9 @@ set +v
 set +v
 
 echo "Running benchmark"
-./install/lib/benchmark/benchmark topology/sierra_nevada.json -t 60 --ipc on
+./install/benchmark/lib/benchmark/benchmark install/benchmark/lib/benchmark/topology/sierra_nevada.json -t 60 --ipc on
+
+ls -lh log
 
 #docker exec osrf_ros2_nightly /bin/bash -c "apt-get update && source /opt/ros/dashing/setup.bash && rosdep update && rosdep install --from-paths /shared/ros2-performance --ignore-src -r -y"
 #docker exec osrf_ros2_nightly /bin/bash -c "source /opt/ros/dashing/setup.bash && source /shared/rmw_dps/install/local_setup.bash && export RMW_IMPLEMENTATION=rmw_dps_cpp && colcon build --packages-up-to benchmark"
