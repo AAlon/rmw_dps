@@ -8,7 +8,7 @@ docker run -dit -v "${TRAVIS_BUILD_DIR}/..:/shared"  --network host --name=osrf_
 docker exec osrf_ros2_nightly /bin/bash -c "git config --global user.name nobody"
 docker exec osrf_ros2_nightly /bin/bash -c "git config --global user.email noreply@osrfoundation.org"
 
-docker exec osrf_ros2_nightly /bin/bash -c "apt-get update && apt-get install -y python-dev && source /opt/ros/dashing/setup.bash && rosdep update && rosdep install --from-paths /shared/rmw_dps --ignore-src -r -y"
+docker exec osrf_ros2_nightly /bin/bash -c "apt-get update && apt-get install -y python-dev rti-connext-dds-5.3.1 && source /opt/ros/dashing/setup.bash && rosdep update && rosdep install --from-paths /shared/rmw_dps --ignore-src -r -y"
 docker exec osrf_ros2_nightly /bin/bash -c "source /opt/ros/dashing/setup.bash && export RMW_IMPLEMENTATION=rmw_dps_cpp && cd /shared && colcon build"
 docker exec osrf_ros2_nightly /bin/bash -c "source /shared/install/local_setup.bash && export RMW_IMPLEMENTATION=rmw_dps_cpp && ./shared/install/benchmark/lib/benchmark/benchmark /shared/install/benchmark/lib/benchmark/topology/sierra_nevada.json -t 60 --ipc on"
 docker exec osrf_ros2_nightly /bin/bash -c "ls -lh /shared/log"
