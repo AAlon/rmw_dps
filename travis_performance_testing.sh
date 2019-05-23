@@ -84,7 +84,7 @@ set +v
 set +v
 
 echo "Running benchmark"
-timeout 70s ./install/benchmark/lib/benchmark/benchmark install/benchmark/lib/benchmark/topology/sierra_nevada.json -t 60 --ipc on
+timeout 70s ./install/benchmark/lib/benchmark/benchmark install/benchmark/lib/benchmark/topology/sierra_nevada.json -t 60 --ipc on || true
 
 ls -lh log
 cat log/resources.txt
