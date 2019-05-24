@@ -6,7 +6,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 WS_DIR=${TRAVIS_BUILD_DIR}/../ros2_ws
 
 # Get ROS2 dependencies and source
-./${SCRIPT_DIR}/ros2_preinstall.sh
+bash ${SCRIPT_DIR}/ros2_preinstall.sh
 # Complete workspace setup: rmw_dps, ros2-performance
 ## rmw_dps
 mv ${TRAVIS_BUILD_DIR} ${WS_DIR}/src/ros2/

@@ -5,6 +5,7 @@ RESOURCES_FILE_NAME = 'resources.txt'
 # Ignore the first few data points so we can be sure the system is in steady state
 SKIPPED_LINES = 3
 
+# Fail the test job if we breach the following thresholds.
 THRESHOLD_CONFIGURATION = {
     'rss': 12000,
     'vsz': 10 ** 6,
@@ -21,6 +22,7 @@ def main(log_dir_path):
     print('Performance check finished successfully.')
 
 def _assert_resources_item_threshold(lines, item, threshold):
+    print('\t Verifying "%s", threshold: %f' % (item, threshold, ))
     descriptor = lines[0]
     item_index = descriptor.index([ x for x in descriptor if item in x][0])
     for line in lines[SKIPPED_LINES:]:
