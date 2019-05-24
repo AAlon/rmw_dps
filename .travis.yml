@@ -14,8 +14,7 @@ services:
 
 env:
   - SCRIPT_NAME=travis_build.sh
-  - SCRIPT_NAME=travis_performance_testing.sh
-  - SCRIPT_NAME=travis_alternative_perf.sh
+  - SCRIPT_NAME=performance_test_utils/travis_performance_testing.sh
 
 before_script:
   - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 6B05F25D762E3157
