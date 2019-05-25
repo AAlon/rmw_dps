@@ -9,7 +9,7 @@ WS_DIR=${TRAVIS_BUILD_DIR}/../ros2_ws
 bash ${SCRIPT_DIR}/ros2_preinstall.sh
 # Complete workspace setup: rmw_dps, ros2-performance
 ## rmw_dps
-mv ${TRAVIS_BUILD_DIR} ${WS_DIR}/src/ros2/
+cp -R ${TRAVIS_BUILD_DIR} ${WS_DIR}/src/ros2/rmw_dps
 ## ros2-performance
 git clone https://github.com/irobot-ros/ros2-performance ${WS_DIR}/src/ros2-performance
 
